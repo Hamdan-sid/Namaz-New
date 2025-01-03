@@ -17,6 +17,10 @@
     <br>
     <button onclick="checkTime()">Check</button>
     <br>
+    <h1>Check Date & Time</h1>
+    
+    <div id="print"></div>
+    <br>
    <p>Fajr Timings</p> <div id="fajr"></div>
     <p>Zohr Timings</p> <div id="zuhr"></div>
     <p> Asar Timings</p> <div id="asar"></div>
@@ -42,7 +46,21 @@
                  
 
             })
-        }
+                    setInterval(function(){
+                let currentDate = new Date() ;
+                let monthArr = ["Jan" , "Feb" , "Mar" , "Apr" , "May" , "Jun" , "Jul" , "Aug" , "Sep" , "Oct" , "Nov" , "Dec"];
+                let date = currentDate.getDate() ;
+                let month = monthArr[currentDate.getMonth()] ;
+                let year = currentDate.getFullYear() ;
+                let hour = currentDate.getHours() ;
+                let min = currentDate.getMinutes() ;
+                let sec = currentDate.getSeconds() ;
+                let fullYear = `${date}-${month}-${year} ${hour}: ${min} :${sec} `
+                document.getElementById("print").innerText = fullYear ;
+                },1000)
+     }
+
+        
     </script>
 </body>
 </html>
